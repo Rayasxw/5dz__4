@@ -6,7 +6,7 @@ import { types } from '../../redux/types/types';
 
 const MainPage = () => {
   const dispatch = useDispatch();
-  const formSubmitStatus = useSelector((state) => state.UsersReducer.formSubmitStatus);
+  const formSubmitStatus = useSelector((state) => state.usersReducer.formSumbitStatus);
 
   
   const onFinish = (data) => {
