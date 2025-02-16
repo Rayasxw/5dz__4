@@ -37,39 +37,3 @@ export function featchDataDetails(id) {
         }
     }
 }
-
-export function formSubmitSuccess(result) {
-    return {
-        type: types.FORM_SUBMIT_SUCCESS,
-        payload: result
-    }
-}
-
-export function formSubmitFailure(result) {
-    return {
-        type: types.FORM_SUBMIT_FAILURE,
-        payload: result
-    }
-}
-
-export function submitForm(data) {
-    return async (dispatch) => {
-        try {
-            const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-            const result = await response.json();
-            if (response.ok) {
-                dispatch(formSubmitSuccess(result));
-            } else {
-                dispatch(formSubmitFailure(result));
-            }
-        } catch (e) {
-            dispatch(formSubmitFailure(e));
-        }
-    }
-}
