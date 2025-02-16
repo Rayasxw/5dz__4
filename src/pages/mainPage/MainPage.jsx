@@ -6,18 +6,18 @@ import { types } from '../../redux/types/types';
 
 const MainPage = () => {
   const dispatch = useDispatch();
-      const formSubmitStatus = useSelector((state) => state.usersReducer.formSubmitStatus);
+  const formSubmitStatus = useSelector((state) => state.UsersReducer.formSubmitStatus);
 
-  // Функция onFinish вызывается при успешной отправке формы
+  
   const onFinish = (data) => {
-    // Данные формы передаются в функцию submitForm
     dispatch(submitForm(data));
   };
 
+  
   useEffect(() => {
     if (formSubmitStatus) {
       setTimeout(() => {
-        dispatch({ type: types.RESET_FORM });
+        dispatch({ type: types.RESET_FORM_SUBMIT_STATUS });
       }, 3000);
     }
   }, [formSubmitStatus, dispatch]);
@@ -27,9 +27,9 @@ const MainPage = () => {
       <Form
         name="basic"
         labelCol={{ span: 8 }}
-        wrapperCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
-        onFinish={onFinish} 
+        onFinish={onFinish}
         autoComplete="off"
       >
         <Form.Item
@@ -54,7 +54,6 @@ const MainPage = () => {
           </Button>
         </Form.Item>
       </Form>
-      <Alert message="Заполните форму и нажмите на кнопку" type="info" showIcon />
       {formSubmitStatus === 'success' && <Alert message="Запрос успешно отправлен" type="success" showIcon />}
       {formSubmitStatus === 'failure' && <Alert message="Запрос провален!" type="error" showIcon />}
     </div>

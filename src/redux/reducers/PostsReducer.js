@@ -2,8 +2,7 @@ import { types } from "../types/types"
 
 const initialState = {
     posts: [],
-    post: [],
-    formSubmitStatus: null
+    post: []
 }
 
 export default function PostsReducer(state = initialState, action) {

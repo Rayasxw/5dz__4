@@ -1,6 +1,5 @@
 import { types } from "../types/types"
 
-
 export function post(data) {
     return {
         type: types.POST,
@@ -14,11 +13,12 @@ export function featchData() {
             const response = await fetch('https://fakestoreapi.com/products')
             const data = await response.json()
             dispatch(post(data))
-        }catch (e) {
+        } catch (e) {
             console.log(e)
         }
     }
 }
+
 export function postDetails(data) {
     return {
         type: types.POST_DETAILS,
@@ -32,7 +32,7 @@ export function featchDataDetails(id) {
             const response = await fetch(`https://fakestoreapi.com/products/${id}`)
             const data = await response.json()
             dispatch(postDetails(data))
-        }catch (e) {
+        } catch (e) {
             console.log(e)
         }
     }
@@ -40,13 +40,14 @@ export function featchDataDetails(id) {
 
 export function formSubmitSuccess(result) {
     return {
-        type: types.SUCCESS,
+        type: types.FORM_SUBMIT_SUCCESS,
         payload: result
     }
 }
+
 export function formSubmitFailure(result) {
     return {
-        type: types.FAILURE,
+        type: types.FORM_SUBMIT_FAILURE,
         payload: result
     }
 }
