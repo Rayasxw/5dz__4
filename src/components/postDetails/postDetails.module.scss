@@ -1,0 +1,28 @@
+.price {
+    color: #086CF9;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.card {
+    display: flex;
+    gap: 60px;
+    border: 1px solid #99999979;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px #99999979;
+    background-color: white;
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 400px;
+    font-family: DM Sans, sans-serif;
+    b {
+        font-weight: 700;
+        color: #086CF9;
+        font-size: 20px;
+
+    }
+}
